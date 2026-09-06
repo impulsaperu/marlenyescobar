@@ -311,6 +311,7 @@ a  { text-decoration: none; color: inherit; }
   letter-spacing: -0.01em;
   text-wrap: balance;
   color: var(--cream);
+  margin-top: 1.25rem;
 }
 .hero-title em {
   font-style: italic;
@@ -323,14 +324,14 @@ a  { text-decoration: none; color: inherit; }
   text-transform: uppercase;
   color: var(--cream-3);
   font-weight: 400;
-  margin-top: 0.25rem;
+  margin-top: 0.75rem;
 }
 .hero-actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 .hero-scroll-hint {
   position: absolute;
