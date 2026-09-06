@@ -296,6 +296,7 @@ a  { text-decoration: none; color: inherit; }
 }
 @media (max-width: 768px) {
   .hero-logo { width: min(360px, 90vw); }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.1em; }
 }
 .hero-eyebrow {
   font-size: 0.75rem;
