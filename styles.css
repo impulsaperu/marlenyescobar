@@ -290,13 +290,13 @@ a  { text-decoration: none; color: inherit; }
   gap: 1.25rem;
 }
 .hero-logo {
-  width: min(360px, 68vw);
+  width: min(460px, 78vw);
   height: auto;
   margin-bottom: 0.5rem;
-  filter: drop-shadow(0 4px 32px rgba(201,160,80,0.5));
+  filter: drop-shadow(0 4px 40px rgba(201,160,80,0.6));
 }
 @media (max-width: 768px) {
-  .hero-logo { width: min(260px, 72vw); }
+  .hero-logo { width: min(320px, 82vw); }
 }
 .hero-eyebrow {
   font-size: 0.75rem;
