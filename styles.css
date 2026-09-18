@@ -313,22 +313,23 @@ a  { text-decoration: none; color: inherit; }
     background: var(--bg);
   }
 
-  /* 2 ── Imagen: zoom-out ~12% con espacio libre alrededor */
+  /* 2 ── Imagen: zoom-out ~12%, rostro arriba */
   .hero-img {
-    object-position: center 12%;
+    object-position: center 5%;
     transform: scale(0.88);
-    transform-origin: center 14%;
+    transform-origin: center 10%;
   }
 
-  /* 3 ── Overlay: transparente arriba, oscuro negro abajo (35 → 100%) */
+  /* 3 ── Overlay: transparente arriba, oscuro desde zona del logo para realzar dorado */
   .hero-overlay {
     background: linear-gradient(
       180deg,
       transparent           0%,
-      transparent          35%,
-      rgba(0,0,0,0.35)     50%,
-      rgba(0,0,0,0.68)     68%,
-      rgba(0,0,0,0.92)    100%
+      transparent          22%,
+      rgba(0,0,0,0.30)     36%,
+      rgba(0,0,0,0.65)     52%,
+      rgba(0,0,0,0.90)     70%,
+      rgba(0,0,0,0.96)    100%
     );
   }
 
@@ -341,17 +342,15 @@ a  { text-decoration: none; color: inherit; }
     gap: 0;
   }
 
-  /* 5 ── Logo imagen desktop: oculto en móvil */
-  .hero-logo { display: none; }
-
-  /* 6 ── Logo desglosado móvil: visible solo aquí */
-  .hero-logo-mobile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 32px;
-    gap: 0;
+  /* 5 ── Logo oficial: visible en móvil */
+  .hero-logo {
+    display: block;
+    width: min(260px, 72vw);
+    margin-top: 24px;
   }
+
+  /* 6 ── Logo desglosado móvil: oculto (se usa el logo oficial) */
+  .hero-logo-mobile { display: none; }
   .hlm-mono {
     font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 2rem;
