@@ -9,6 +9,8 @@
 - [x] Eliminar Ken Burns y parallax del hero
 - [x] Nav móvil — hamburguesa dorada, sin logo visible
 - [x] Documentación base del proyecto (`CLAUDE.md`, `README.md`, `docs/`)
+- [x] Hero móvil — todos los puntos del spec `hero-mobile.md` verificados e implementados
+- [x] Fix overlap WA float / CTA secundario — `padding-bottom` hero-inner subido a 96px
 
 ---
 
