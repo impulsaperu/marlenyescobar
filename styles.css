@@ -313,21 +313,22 @@ a  { text-decoration: none; color: inherit; }
     background: var(--bg);
   }
 
-  /* 2 ── Imagen: ancho completo, recorta zona inferior (silla/suelo), rostro libre arriba */
+  /* 2 ── Imagen: recorta zona inferior (silla/suelo), rostro libre arriba */
   .hero-img {
-    object-position: center 0%;
+    object-position: center 5%;
     clip-path: inset(0 0 45% 0);
   }
 
-  /* 3 ── Overlay: cara libre en zona alta, logo sobre fondo casi negro */
+  /* 3 ── Overlay: transparente en zona del rostro, oscuro desde la mitad inferior */
   .hero-overlay {
     background: linear-gradient(
       180deg,
       transparent           0%,
-      transparent          45%,
-      rgba(0,0,0,0.55)     60%,
-      rgba(0,0,0,0.90)     75%,
-      rgba(0,0,0,0.97)    100%
+      transparent          28%,
+      rgba(0,0,0,0.40)     38%,
+      rgba(0,0,0,0.82)     48%,
+      rgba(0,0,0,0.96)     56%,
+      rgba(0,0,0,0.98)    100%
     );
   }
 
