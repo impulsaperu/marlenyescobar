@@ -230,7 +230,7 @@ a  { text-decoration: none; color: inherit; }
   min-height: 100svh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
 }
 .hero-bg {
@@ -250,7 +250,7 @@ a  { text-decoration: none; color: inherit; }
   inset: 0;
   background:
     linear-gradient(180deg, rgba(6,6,6,0.45) 0%, rgba(6,6,6,0.25) 40%, rgba(6,6,6,0.65) 100%),
-    linear-gradient(90deg, rgba(6,6,6,0.35) 0%, transparent 60%);
+    linear-gradient(90deg, rgba(6,6,6,0.75) 0%, rgba(6,6,6,0.4) 45%, transparent 70%);
 }
 .hero-mesh {
   position: absolute;
@@ -281,12 +281,13 @@ a  { text-decoration: none; color: inherit; }
 .hero-inner {
   position: relative;
   z-index: 3;
-  text-align: center;
+  text-align: left;
   padding: 2rem clamp(1.5rem, 5vw, 4rem) clamp(2.5rem, 6vh, 5rem);
-  max-width: 900px;
+  padding-left: clamp(2rem, 7vw, 8rem);
+  max-width: 640px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.6rem;
 }
 .hero-logo {
@@ -295,8 +296,15 @@ a  { text-decoration: none; color: inherit; }
   filter: drop-shadow(0 4px 40px rgba(201,160,80,0.6));
 }
 @media (max-width: 768px) {
-  .hero-logo { width: min(360px, 90vw); }
+  .hero-logo { width: min(300px, 80vw); }
   .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.1em; }
+  .hero-inner {
+    text-align: center;
+    align-items: center;
+    padding-left: clamp(1.5rem, 5vw, 2rem);
+    max-width: 100%;
+  }
+  .hero-actions { justify-content: center; }
 }
 .hero-eyebrow {
   font-size: 0.75rem;
@@ -331,7 +339,7 @@ a  { text-decoration: none; color: inherit; }
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 1.5rem;
 }
 .hero-scroll-hint {
