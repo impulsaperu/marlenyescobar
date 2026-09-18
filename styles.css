@@ -300,42 +300,170 @@ a  { text-decoration: none; color: inherit; }
   height: auto;
   filter: drop-shadow(0 4px 32px rgba(201,160,80,0.55));
 }
+/* =====================================================
+   HERO MÓVIL PREMIUM — Versión Final
+   Inspiración: Kérastase / L'Oréal Professionnel / Dyson Beauty
+   ===================================================== */
 @media (max-width: 768px) {
-  /* --- Hero móvil: rostro visible arriba, texto abajo --- */
+
+  /* 1 ── Layout: contenido anclado en la zona inferior */
   .hero {
     align-items: flex-end;
     justify-content: center;
+    background: var(--bg);
   }
+
+  /* 2 ── Imagen: zoom-out ~12% con espacio libre alrededor */
   .hero-img {
-    /* Imagen portrait: cara arriba, sin flip, encuadre natural */
-    object-position: 40% 8%;
+    object-position: center 12%;
+    transform: scale(0.88);
+    transform-origin: center 14%;
   }
+
+  /* 3 ── Overlay: transparente arriba, oscuro negro abajo (35 → 100%) */
   .hero-overlay {
-    background:
-      linear-gradient(180deg,
-        rgba(6,6,6,0.12) 0%,
-        rgba(6,6,6,0.10) 38%,
-        rgba(6,6,6,0.72) 62%,
-        rgba(6,6,6,0.96) 100%
-      );
+    background: linear-gradient(
+      180deg,
+      transparent           0%,
+      transparent          35%,
+      rgba(0,0,0,0.35)     50%,
+      rgba(0,0,0,0.68)     68%,
+      rgba(0,0,0,0.92)    100%
+    );
   }
-  .hero-logo { width: min(220px, 68vw); }
-  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.1em; }
-  .hero-title { font-size: clamp(1.6rem, 7vw, 2.4rem); margin-top: 0.75rem; }
-  .hero-services { font-size: 0.65rem; letter-spacing: 0.09em; }
+
+  /* 4 ── Hero inner: centrado, sin gap (control por margin-top por elemento) */
   .hero-inner {
     text-align: center;
     align-items: center;
-    padding: 0 1.5rem 3.5rem;
+    padding: 0 5% 40px;
     max-width: 100%;
-    gap: 0.4rem;
+    gap: 0;
   }
-  .hero-actions {
-    justify-content: center;
+
+  /* 5 ── Logo imagen desktop: oculto en móvil */
+  .hero-logo { display: none; }
+
+  /* 6 ── Logo desglosado móvil: visible solo aquí */
+  .hero-logo-mobile {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 32px;
+    gap: 0;
   }
+  .hlm-mono {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 2rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+  }
+  .hlm-name {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-top: 12px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.75);
+  }
+  .hlm-sub {
+    font-family: "Inter", sans-serif;
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: var(--cream-2);
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-top: 12px;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+  }
+
+  /* 7 ── Eyebrow: blanco, mayúsculas, tracking amplio — gap 28px */
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    color: var(--cream);
+    margin-top: 28px;
+  }
+
+  /* 8 ── Título héroe — gap 36px desde eyebrow */
+  .hero-title {
+    font-size: 2.75rem;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin-top: 36px;
+    text-wrap: balance;
+    color: var(--cream);
+  }
+  .hero-title em {
+    display: block;
+    font-size: 2.2rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-top: 10px;
+    line-height: 1;
+  }
+
+  /* 9 ── Lista de servicios: ocultar en móvil */
+  .hero-services { display: none; }
+
+  /* 10 ── Botones — gap 40px desde el título */
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 40px;
+    gap: 0;
+  }
+  /* Botón principal — dorado, 90%, 58px, muy redondeado */
+  .hero-actions .btn-gold {
+    width: 90%;
+    height: 58px;
+    padding: 0 1.5rem;
+    border-radius: 50px;
+    justify-content: center;
+    font-size: 0.875rem;
+    letter-spacing: 0.09em;
+    background: var(--gold);
+    color: var(--bg);
+  }
+  /* Botón secundario — borde dorado, texto dorado, 90%, 18px debajo */
+  .hero-actions .btn-ghost {
+    width: 90%;
+    height: 52px;
+    padding: 0 1.5rem;
+    border-radius: 50px;
+    justify-content: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.09em;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    margin-top: 18px;
+  }
+
+  /* 11 ── Nav hamburguesa: dorado, solo ícono, sin logo visible */
+  .nav-logo { display: none; }
+  .nav-toggle span { background: var(--gold); }
+
+  /* 12 ── Scroll hint: ocultar en móvil para diseño limpio */
+  .hero-scroll-hint { display: none; }
+
+  /* 13 ── WA flotante: 20px del borde */
+  .wa-float { bottom: 20px; right: 20px; }
 }
+
+/* Logo móvil: visible solo en ≤768px */
+@media (min-width: 769px) {
+  .hero-logo-mobile { display: none; }
+}
+
 .hero-eyebrow {
   font-size: 0.75rem;
   letter-spacing: 0.16em;
