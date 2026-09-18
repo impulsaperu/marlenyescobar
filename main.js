@@ -170,17 +170,8 @@
     });
   }
 
-  /* =====================================================
-     HERO IMAGE — slow Ken Burns
-     ===================================================== */
-  function initHeroImage() {
-    var img = document.querySelector(".hero-img");
-    if (!img) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    img.style.transform = "scale(1)";
-    img.style.transition = "transform 12s ease-out";
-    setTimeout(function () { img.style.transform = "scale(1.06)"; }, 200);
-  }
+  /* Ken Burns removido — imagen hero estática */
+  function initHeroImage() { /* no-op */ }
 
   /* =====================================================
      GSAP SCROLL TRIGGERS — section parallax reveals
@@ -195,12 +186,7 @@
       clearProps: "opacity,transform"
     });
 
-    /* hero mesh parallax */
-    gsap.to(".hero-mesh", {
-      y: "-20%",
-      ease: "none",
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1.2 }
-    });
+    /* hero mesh parallax removido */
 
     /* stats — subtle Y parallax only (opacity handled by IntersectionObserver) */
     gsap.from(".stat-item", {

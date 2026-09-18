@@ -241,32 +241,37 @@ a  { text-decoration: none; color: inherit; }
 .hero-img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center center;
-  transform: scaleX(-1) scale(1.04);
-  transition: transform 8s ease-out;
+  /* Cara arriba-izquierda: el sujeto está centrado en la foto portrait,
+     desplazamos al 35% horizontal y 8% vertical para dejarla arriba-izq */
+  object-position: 35% 8%;
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
+  /* Overlay suave en zona del rostro (arriba), más oscuro abajo para texto */
   background:
-    linear-gradient(180deg, rgba(6,6,6,0.45) 0%, rgba(6,6,6,0.25) 40%, rgba(6,6,6,0.65) 100%),
-    linear-gradient(90deg, rgba(6,6,6,0.75) 0%, rgba(6,6,6,0.4) 45%, transparent 70%);
+    linear-gradient(180deg,
+      rgba(6,6,6,0.18) 0%,
+      rgba(6,6,6,0.15) 30%,
+      rgba(6,6,6,0.60) 58%,
+      rgba(6,6,6,0.88) 100%
+    ),
+    linear-gradient(90deg,
+      rgba(6,6,6,0.55) 0%,
+      rgba(6,6,6,0.25) 40%,
+      transparent 65%
+    );
 }
+/* Mesh dorado estático (sin animación) */
 .hero-mesh {
   position: absolute;
   inset: -10%;
   z-index: 1;
   background:
-    radial-gradient(ellipse 60% 50% at 15% 60%, rgba(201,160,80,0.22) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(201,160,80,0.10) 0%, transparent 60%);
+    radial-gradient(ellipse 60% 50% at 15% 60%, rgba(201,160,80,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(201,160,80,0.08) 0%, transparent 60%);
   filter: blur(60px) saturate(150%);
-  animation: meshDrift 20s ease-in-out infinite;
   pointer-events: none;
-}
-@keyframes meshDrift {
-  0%,100% { transform: scale(1) translate(0,0); }
-  33%      { transform: scale(1.08) translate(2%, -2%); }
-  66%      { transform: scale(0.96) translate(-1%, 1%); }
 }
 .hero-grain {
   position: absolute;
@@ -291,9 +296,9 @@ a  { text-decoration: none; color: inherit; }
   gap: 0.6rem;
 }
 .hero-logo {
-  width: min(420px, 72vw);
+  width: min(340px, 60vw);   /* más pequeño que antes (era 420px) */
   height: auto;
-  filter: drop-shadow(0 4px 40px rgba(201,160,80,0.6));
+  filter: drop-shadow(0 4px 32px rgba(201,160,80,0.55));
 }
 @media (max-width: 768px) {
   /* --- Hero móvil: rostro visible arriba, texto abajo --- */
@@ -302,24 +307,19 @@ a  { text-decoration: none; color: inherit; }
     justify-content: center;
   }
   .hero-img {
-    /* Marleny ocupa el centro de la panorámica (~47%). scaleX(-1) invierte
-       eje X, por eso se compensa con 53% para centrarla visualmente.
-       scale(1) quita el zoom extra para "alejar" más la foto. */
-    object-position: 53% 20%;
-    transform: scaleX(-1) scale(1.0);
+    /* Imagen portrait: cara arriba, sin flip, encuadre natural */
+    object-position: 40% 8%;
   }
   .hero-overlay {
-    /* Overlay más marcado arriba para separar la foto del nav,
-       oscuro abajo para legibilidad del texto */
     background:
       linear-gradient(180deg,
-        rgba(6,6,6,0.35) 0%,
-        rgba(6,6,6,0.08) 35%,
-        rgba(6,6,6,0.70) 62%,
-        rgba(6,6,6,0.95) 100%
+        rgba(6,6,6,0.12) 0%,
+        rgba(6,6,6,0.10) 38%,
+        rgba(6,6,6,0.72) 62%,
+        rgba(6,6,6,0.96) 100%
       );
   }
-  .hero-logo { width: min(260px, 75vw); }
+  .hero-logo { width: min(220px, 68vw); }
   .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.1em; }
   .hero-title { font-size: clamp(1.6rem, 7vw, 2.4rem); margin-top: 0.75rem; }
   .hero-services { font-size: 0.65rem; letter-spacing: 0.09em; }
@@ -544,6 +544,46 @@ a  { text-decoration: none; color: inherit; }
 .service-card:hover .halo { opacity: 1; }
 
 /* =====================================================
+   COLOR VISUAL — banner imagen morada entre servicios y about
+   ===================================================== */
+.color-visual { position: relative; overflow: hidden; }
+.color-visual-img-wrap {
+  position: relative;
+  height: clamp(340px, 50vw, 520px);
+  overflow: hidden;
+}
+.color-visual-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: saturate(1.1);
+}
+.color-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(6,6,6,0.78) 0%, rgba(6,6,6,0.45) 45%, rgba(6,6,6,0.15) 100%),
+    linear-gradient(180deg, transparent 40%, rgba(6,6,6,0.6) 100%);
+}
+.color-visual-caption {
+  position: absolute;
+  bottom: clamp(2rem, 5vw, 3.5rem);
+  left: clamp(2rem, 7vw, 8rem);
+  z-index: 2;
+  color: var(--cream);
+}
+.color-visual-caption .section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-align: left;
+  margin-top: 0.5rem;
+}
+@media (max-width: 768px) {
+  .color-visual-img-wrap { height: 56vw; min-height: 260px; }
+  .color-visual-caption { left: 1.5rem; bottom: 1.5rem; }
+  .color-visual-caption .section-title { font-size: clamp(1.5rem, 7vw, 2rem); }
+}
+
+/* =====================================================
    ABOUT / MARCA PERSONAL
    ===================================================== */
 .about {
@@ -610,10 +650,9 @@ a  { text-decoration: none; color: inherit; }
 .about-img-wrap img {
   width: 100%; height: 100%;
   object-fit: cover;
-  /* Panel derecho de la panorámica: mujer con cabello rojo/magenta (~88%) */
-  object-position: 88% 20%;
+  /* Cabello rojo: centrar en el rostro y cabello superior */
+  object-position: center 12%;
   filter: saturate(1.12) contrast(1.06);
-  transition: transform 8s ease-out;
 }
 .about-img-wrap:hover img { transform: scale(1.04); }
 /* Overlay sutil sobre la imagen del About */
